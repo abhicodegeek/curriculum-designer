@@ -2,5 +2,5 @@ projectKey=hyper-content-new
 serverUrl=http://localhost:9099
 serverVersion=25.1.0.102122
 dashboardUrl=http://localhost:9099/dashboard?id=hyper-content-new
-ceTaskId=387e41bb-4111-4840-98c0-882acb17aebb
-ceTaskUrl=http://localhost:9099/api/ce/task?id=387e41bb-4111-4840-98c0-882acb17aebb
+ceTaskId=70747858-2fbd-428c-9700-aeb92836dd57
+ceTaskUrl=http://localhost:9099/api/ce/task?id=70747858-2fbd-428c-9700-aeb92836dd57
