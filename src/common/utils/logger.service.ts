@@ -4,11 +4,13 @@ import * as path from 'path';
 
 @Injectable()
 export class AppLogger extends Logger {
-  private logFilePath: string;
+  private readonly logFilePath: string;
+  private readonly loggedMessages: Set<string>; // Track logged messages to avoid duplicates
 
   constructor() {
     super();
     this.logFilePath = path.resolve('logs', 'app.log');
+    this.loggedMessages = new Set(); // Initialize the set
 
     // Ensure logs directory exists
     if (!fs.existsSync(path.dirname(this.logFilePath))) {
@@ -17,8 +19,11 @@ export class AppLogger extends Logger {
   }
 
   log(message: string, context?: string): void {
-    super.log(message, context);
-    this.writeToFile('LOG', message, context);
+    if (!this.loggedMessages.has(message)) {
+      super.log(message, context); // Log to console
+      this.writeToFile('LOG', message, context); // Log to file
+      this.loggedMessages.add(message); // Track the message to prevent duplicate logs
+    }
   }
 
   error(message: string, trace?: string, context?: string): void {

@@ -1,7 +1,14 @@
-import * as mongoose from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
-export const CatSchema = new mongoose.Schema({
-  name: String,
-  age: Number,
-  breed: String,
+// Moc interface, extending Document
+export interface Moc extends Document {
+  message: string;
+}
+
+// Moc Schema definition
+export const MocSchema = new Schema({
+  message: { type: String, required: true },
 });
+
+// Moc model name
+export const Moc = 'Moc';

@@ -9,14 +9,9 @@ export class AppController {
     private readonly logger: AppLogger,
   ) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-
   @Get('/dev')
   getData(): string {
-    this.logger.log('hello, my first log in hyper content service!');
+    this.logger.debug('hello, my first log in hyper content service!');
     return this.appService.getData();
   }
 
